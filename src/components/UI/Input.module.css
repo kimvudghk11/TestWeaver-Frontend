@@ -1,0 +1,11 @@
+.group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.group input {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
