@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { authApi } from "../../api/authApi";
+
+import AuthLayout from "../../components/Layout/AuthLayout";
 import Input from "../../components/UI/Input";
+import Button from "../../components/UI/Button";
 import styles from "./Auth.module.css";
 
 export default function LoginPage() {
@@ -19,20 +22,18 @@ export default function LoginPage() {
     };
 
     return (
-        <div className={styles.container}>
+        <AuthLayout title="Login">
             <form className={styles.form} onSubmit={onSubmit}>
-                <h2>로그인</h2>
+                <Input placeholder="User Id" onChange={onChange} />
+                <Input type="password" placeholder="User Password" onChange={onChange} />
 
-                <Input label="아이디" name="loginId" onChange={onChange} />
-                <Input label="비밀번호" name="password" type="password" onChange={onChange} />
+                <Button type="submit">Sing in</Button>
 
-                <button className={styles.btn}>로그인</button>
-
-                <div className={styles.links}>
-                    <a href="/auth/find-id">아이디 찾기</a>
-                    <a href="/auth/reset-pw">비밀번호 찾기</a>
+                <div className={styles.subActions}>
+                    <a href="/auth/reset-password">Forgot Password?</a>
+                    <a href="/auth/register">Don't have an account? Register</a>
                 </div>
             </form>
-        </div>
+        </AuthLayout>
     );
 }

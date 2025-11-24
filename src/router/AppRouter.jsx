@@ -7,7 +7,7 @@ import AboutPage from "../pages/Home/AboutPage";
 import HelpPage from "../pages/Home/HelpPage";
 
 // Auth Pages
-//import LoginPage from "../pages/Auth/LoginPage";
+import LoginPage from "../pages/Auth/LoginPage";
 //import RegisterPage from "../pages/Auth/RegisterPage";
 //import FindIdPage from "../pages/Auth/FindIdPage";
 //import ResetPwPage from "../pages/Auth/ResetPwPage";
@@ -29,6 +29,9 @@ export default function AppRouter() {
                 <Route path="/docs" element={<DocsPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/help" element={<HelpPage />} />
+
+                {/* Auth */}
+                <Route path="/auth/login" element={<LoginPage />} />
             </Routes>
         </BrowserRouter>
     );

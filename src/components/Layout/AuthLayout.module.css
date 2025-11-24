@@ -1,0 +1,41 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-image);
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    padding: 32px 28px;
+    background: var(--auth-card);
+    border: var(--auth-border);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-white);
+}
+
+.content {
+    width: 100%;
+}
+
+.footer {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 14px;
+}

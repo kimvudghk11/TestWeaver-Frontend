@@ -1,13 +1,19 @@
 :root {
+    --bg: white;
+    --bg-image: url("/tw_background.jpg");
+
+    --text-white: white;
+    --text-black: black;
+    --normal-font-size: 24px;
+
     --primary: #4b7bec;
     --secondary: #778ca3;
     --danger: #eb3b5a;
     --success: #20bf6b;
-    --bg: #fff;
-    --text-white: #fff;
-    --text: #2f3542;
-    --border: #dcdde1;
+
+    --border: white;
     --radius: 16px;
 
-    --bg-image: url("/tw_background.jpg");
+    --auth-card: rgba(22, 34, 48, 0.5);
+    --auth-border: 5px solid white;
 }
