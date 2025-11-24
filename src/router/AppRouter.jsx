@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginPage from "../pages/Auth/LoginPage";
-import RegisterPage from "../pages/Auth/RegisterPage";
-import FindIdPage from "../pages/Auth/FindIdPage";
-import ResetPwPage from "../pages/Auth/ResetPwPage";
+//import RegisterPage from "../pages/Auth/RegisterPage";
+//import FindIdPage from "../pages/Auth/FindIdPage";
+//import ResetPwPage from "../pages/Auth/ResetPwPage";
 
 import ProjectListPage from "../pages/Project/ProjectListPage";
-import ProjectCreatePage from "../pages/Project/ProjectCreatePage";
-import ProjectDetailPage from "../pages/Project/ProjectDetailPage";
+//import ProjectCreatePage from "../pages/Project/ProjectCreatePage";
+//import ProjectDetailPage from "../pages/Project/ProjectDetailPage";
 
 import GeneratePage from "../pages/TestCase/GeneratePage";
 import ResultPage from "../pages/TestCase/ResultPage";
 
-import HomePage from "../pages/Home/HomePage";
+//import HomePage from "../pages/Home/HomePage";
 
 export default function AppRouter() {
     return (
