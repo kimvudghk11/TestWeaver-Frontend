@@ -8,9 +8,9 @@ import HelpPage from "../pages/Home/HelpPage";
 
 // Auth Pages
 import LoginPage from "../pages/Auth/LoginPage";
-//import RegisterPage from "../pages/Auth/RegisterPage";
-//import FindIdPage from "../pages/Auth/FindIdPage";
-//import ResetPwPage from "../pages/Auth/ResetPwPage";
+import RegisterPage from "../pages/Auth/RegisterPage";
+import FindIdPage from "../pages/Auth/FindIdPage";
+import ResetPwPage from "../pages/Auth/ResetPwPage";
 
 // Projects pages (로그인 이후)
 //import ProjectListPage from "../pages/Project/ProjectListPage";
@@ -32,6 +32,9 @@ export default function AppRouter() {
 
                 {/* Auth */}
                 <Route path="/auth/login" element={<LoginPage />} />
+                <Route path="/auth/register" element={<RegisterPage />} />
+                <Route path="/auth/find-id" element={<FindIdPage />} />
+                <Route path="/auth/reset-password" element={<ResetPwPage />} />
             </Routes>
         </BrowserRouter>
     );
