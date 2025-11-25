@@ -50,6 +50,20 @@
     color: var(--text-white);
 }
 
+.right .user {
+    color: var(--text-white);
+    font-weight: 600;
+    margin-right: 16px;
+}
+
+.right .logoutBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+}
+
 .main {
     flex: 1;
     display: flex;

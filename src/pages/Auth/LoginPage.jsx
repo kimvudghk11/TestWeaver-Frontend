@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { authApi } from "../../api/authApi";
 import { useAuth } from "../../context/AuthContext";
@@ -10,9 +10,14 @@ import styles from "./Auth.module.css";
 
 export default function LoginPage() {
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { user, login } = useAuth();
 
     const [form, setForm] = useState({ loginId: "", password: "" });
+
+    useEffect(() => {
+        if (user)
+            navigate("/projects");
+    }, [user]);
 
     const onChange = (e) =>
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -22,8 +27,6 @@ export default function LoginPage() {
 
         const res = await authApi.login(form);
         login(res);
-
-        navigate("/");
     };
 
     return (

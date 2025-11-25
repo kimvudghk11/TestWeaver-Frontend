@@ -9,7 +9,7 @@ export default function RegisterPage() {
             <form className={styles.form}>
                 <Input label="User Id" type="text" />
                 <Input label="Email" type="email" />
-                <Input label="Ma,e" type="text" />
+                <Input label="name" type="text" />
                 <Input label="Password" type="password" />
                 <Input label="Phone" type="text" />
                 <Button type="submit">Sing up</Button>

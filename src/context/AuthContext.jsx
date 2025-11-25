@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         checkLogin();
-    }, []);
+    }, [user]);
 
     const checkLogin = async () => {
         try {
