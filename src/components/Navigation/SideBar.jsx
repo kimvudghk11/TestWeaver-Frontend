@@ -13,6 +13,9 @@ export default function SideBar() {
                 <Link to="/docs" className={styles.item}>
                     Docs
                 </Link>
+                <Link to="/setting" className={styles.item}>
+                    Setting
+                </Link>
                 <Link to="/help" className={styles.item}>
                     Help
                 </Link>

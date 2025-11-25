@@ -1,7 +1,7 @@
 .sidebar {
     width: 220px;
-    background: #ffffff;
-    border-right: 1px solid #e5e5e5;
+    background: var(--bg);
+    border-right: 3px solid var(--border-color);
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -10,6 +10,7 @@
 .logo {
     font-size: 22px;
     font-weight: 700;
+    color: var(--text-white);
     margin-bottom: 24px;
 }
 
@@ -21,14 +22,15 @@
 
 .item {
     text-decoration: none;
-    color: #333;
+    color: var(--text-white);
     padding: 10px;
     border-radius: 6px;
     transition: 0.15s ease;
 }
 
 .item:hover {
-    background: #f1f1f1;
+    background: var(--active-color);
+    color: var(--text-black);
 }
 
 .item.active {

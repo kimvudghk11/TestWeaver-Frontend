@@ -1,9 +1,9 @@
 :root {
-    --bg: white;
+    --bg: #222831;
     --bg-image: url("/tw_background.jpg");
 
-    --text-white: white;
-    --text-black: black;
+    --text-white: #EEEEEE;
+    --text-black: #222831;
     --normal-font-size: 24px;
 
     --primary: #4b7bec;
@@ -11,9 +11,11 @@
     --danger: #eb3b5a;
     --success: #20bf6b;
 
-    --border: white;
+    --border-color: #EEEEEE;
     --radius: 16px;
 
     --auth-card: rgba(22, 34, 48, 0.5);
     --auth-border: 5px solid white;
+
+    --active-color: #FFD369;
 }
