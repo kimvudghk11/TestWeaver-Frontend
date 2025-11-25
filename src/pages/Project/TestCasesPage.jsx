@@ -1,44 +1,71 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { projectApi } from "../../api/projectApi";
 import ProjectLayout from "../../components/Project/ProjectLayout";
 import styles from "./TestCases.module.css";
-import Button from "../../components/UI/Button";
 
 export default function TestCasesPage() {
-    // 추후 API로 받게 될 데이터
-    const testcases = [
-        { id: 1, Browser: "Chrome", OS: "Windows" },
-        { id: 2, Browser: "Edge", OS: "macOS" },
-        { id: 3, Browser: "Safari", OS: "macOS" }
-    ];
+    const { id } = useParams();
+    const [sets, setSets] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const columns = Object.keys(testcases[0]);
+    useEffect(() => {
+        load();
+    }, []);
+
+    const load = async () => {
+        try {
+            const res = await projectApi.getTestCases(id);
+
+            setSets(res.data || []);
+        } catch (err) {
+            console.error(err);
+            setSets([]);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (loading) return <ProjectLayout>Loading...</ProjectLayout>;
+
+    if (sets.length === 0) {
+        return (
+            <ProjectLayout>
+                <h1>Generated Test Cases</h1>
+                <p>아직 생성된 테스트 케이스가 없습니다.</p>
+            </ProjectLayout>
+        );
+    }
+
+    const firstSet = sets[0];
+    const cases = firstSet.testCases || [];
 
     return (
         <ProjectLayout>
-            <div className={styles.header}>
-                <h1>Test Cases</h1>
-                <Button>재생성</Button>
-            </div>
+            <h1>Generated Test Cases</h1>
 
-            <div className={styles.table}>
-                <table>
-                    <thead>
-                        <tr>
-                            {columns.map((col) => (
-                                <th key={col}>{col}</th>
+            <table className={styles.table}>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        {cases.length > 0 &&
+                            Object.keys(cases[0]).map((key) => (
+                                <th key={key}>{key}</th>
+                            ))}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {cases.map((c, index) => (
+                        <tr key={index}>
+                            <td>{index + 1}</td>
+                            {Object.values(c).map((v, i) => (
+                                <td key={i}>{v}</td>
                             ))}
                         </tr>
-                    </thead>
-                    <tbody>
-                        {testcases.map((tc) => (
-                            <tr key={tc.id}>
-                                {columns.map((col) => (
-                                    <td key={col}>{tc[col]}</td>
-                                ))}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                    ))}
+                </tbody>
+            </table>
         </ProjectLayout>
     );
 }

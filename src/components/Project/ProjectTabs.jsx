@@ -6,9 +6,7 @@ export default function ProjectTabs() {
 
     const tabs = [
         { name: "Project List", path: "/projects" },
-        { name: "Overview", path: `/projects/${id}/overview` },
-        { name: "Model", path: `/projects/${id}/model` },
-        { name: "Generate", path: `/projects/${id}/generate` },
+        { name: "Overview", path: `/projects/${id}/detail` },
         { name: "TestCases", path: `/projects/${id}/testcases` },
         { name: "Export", path: `/projects/${id}/export` },
     ];

@@ -90,7 +90,7 @@ export default function ProjectListPage() {
                                     <tr
                                         key={p.id}
                                         className={styles.row}
-                                        onClick={() => navigate(`/projects/${p.id}/overview`)}
+                                        onClick={() => navigate(`/projects/${p.id}/detail`)}
                                     >
                                         <td>{index + 1}</td>
                                         <td>{p.name}</td>

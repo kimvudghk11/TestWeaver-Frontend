@@ -31,5 +31,15 @@ export const projectApi = {
         const res = await api.delete(`/projects/${id}`);
 
         return res.data;
-    }
+    },
+
+    generateModel: async (projectId, body) => {
+        const res = await api.post(`/projects/${projectId}/model`, body);
+        return res.data.data;
+    },
+
+    getTestCases: async (projectId) => {
+        const res = await api.get(`/projects/${projectId}/testcases`);
+        return res.data.data;
+    },
 };
