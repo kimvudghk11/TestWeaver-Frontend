@@ -1,0 +1,86 @@
+.container {
+    padding: 32px 40px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.subtitle {
+    margin-top: 4px;
+    font-size: 24px;
+    color: var(--text-white);
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: row;
+    padding: 12px;
+}
+
+.general {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.inputTitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-white);
+    padding-left: 8px;
+    padding-bottom: 16px;
+}
+
+.general :global(input) {
+    width: 350px;
+    height: 48px;
+    font-size: 16px;
+    padding: 10px 14px;
+}
+
+.general :global(label) {
+    color: var(--text-white);
+    padding-left: 8px;
+    padding-bottom: 16px;
+}
+
+.radioGroupWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.radioTitle {
+    font-size: 24px;
+    color: var(--text-white);
+    padding-left: 8px;
+    padding-bottom: 16px;
+}
+
+.radioGroup {
+    display: flex;
+    align-items: center;
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    color: var(--text-white);
+}
+
+.radioGroup input {
+    width: 25px;
+    height: 25px;
+}
