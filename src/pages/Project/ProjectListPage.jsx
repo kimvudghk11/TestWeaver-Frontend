@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { projectApi } from "../../api/projectApi";
 
 import MainLayout from "../../components/Layout/MainLayout";
 import Button from "../../components/UI/Button";
@@ -7,23 +9,46 @@ import styles from "./Project.module.css";
 export default function ProjectListPage() {
     const navigate = useNavigate();
 
-    // 추후 API 연결 예정
-    const projects = [
-        {
-            id: 1,
-            name: "결제 모듈 테스트",
-            description: "Browser x OS 조합 테스트",
-            updatedAt: "2025-11-24",
-            testCaseCount: 32,
-        },
-        {
-            id: 2,
-            name: "회원가입 폼 검증",
-            description: "필수 입력 + 조합 테스트",
-            updatedAt: "2025-11-23",
-            testCaseCount: 12,
-        },
-    ];
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [err, setErr] = useState(null);
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const res = await projectApi.list();
+
+                setProjects(res.data);
+            } catch (err) {
+                console.err(err);
+                setErr(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProjects();
+    }, []);
+
+    if (loading) {
+        return (
+            <MainLayout>
+                <div className={styles.dashboard}>
+                    <p>Loading projects...</p>
+                </div>
+            </MainLayout>
+        );
+    }
+
+    if (err) {
+        return (
+            <MainLayout>
+                <div className={styles.dashboard}>
+                    <p>프로젝트 목록을 불러오는 중 오류가 발생했습니다.</p>
+                </div>
+            </MainLayout>
+        );
+    }
 
     return (
         <MainLayout>
@@ -54,18 +79,26 @@ export default function ProjectListPage() {
                         </thead>
 
                         <tbody>
-                            {projects.map((p, index) => (
-                                <tr
-                                    key={p.id}
-                                    className={styles.row}
-                                    onClick={() => navigate(`/projects/${p.id}/overview`)}
-                                >
-                                    <td>{index + 1}</td>
-                                    <td>{p.name}</td>
-                                    <td className={styles.descCell}>{p.description}</td>
-                                    <td>{p.updatedAt}</td>
+                            {projects.length === 0 ? (
+                                <tr>
+                                    <td colSpan={4} style={{ textAlign: "center" }}>
+                                        아직 생성된 프로젝트가 없습니다.
+                                    </td>
                                 </tr>
-                            ))}
+                            ) : (
+                                projects.map((p, index) => (
+                                    <tr
+                                        key={p.id}
+                                        className={styles.row}
+                                        onClick={() => navigate(`/projects/${p.id}/overview`)}
+                                    >
+                                        <td>{index + 1}</td>
+                                        <td>{p.name}</td>
+                                        <td styles={styles.descCell}>{p.description || "-"}</td>
+                                        <td>{p.updatedAt.slice(0, 10) || "-"}</td>
+                                    </tr>
+                                ))
+                            )}
                         </tbody>
                     </table>
                 </div>
