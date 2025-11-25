@@ -19,9 +19,7 @@ export default function ProjectTabs() {
                 <NavLink
                     key={tab.name}
                     to={tab.path}
-                    className={({ isActive }) =>
-                        isActive ? styles.activeTab : styles.tab
-                    }
+                    className={styles.tab}
                 >
                     {tab.name}
                 </NavLink>

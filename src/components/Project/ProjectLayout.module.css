@@ -1,14 +1,15 @@
 .container {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .left {
     width: 220px;
+    height: 100%;
     border-right: 1px solid #e0e0e0;
     padding: 20px 16px;
-    background: #fafafa;
+    background: var(--bg);
 }
 
 .right {
@@ -26,13 +27,14 @@
 .tab {
     padding: 10px 14px;
     border-radius: 6px;
-    color: #444;
+    color: var(--text-white);
     text-decoration: none;
     font-weight: 500;
 }
 
 .tab:hover {
-    background: #efefef;
+    color: var(--text-black);
+    background: var(--active-color);
 }
 
 .activeTab {
