@@ -80,3 +80,29 @@
 .buttonWrapper {
     margin-left: 64px;
 }
+
+.radioGroup input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    transition: 0.2s ease;
+}
+
+.radioGroup input[type="radio"]:checked {
+    border-color: var(--active-color);
+    background-color: var(--active-color);
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-white);
+    cursor: pointer;
+    font-size: 16px;
+}

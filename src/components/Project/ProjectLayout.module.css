@@ -8,7 +8,7 @@
     width: 220px;
     height: 100%;
     border-right: 1px solid #e0e0e0;
-    padding: 20px 16px;
+    padding: 20px 20px;
     background: var(--bg);
 }
 
@@ -23,6 +23,7 @@
     font-weight: 700;
     color: var(--text-white);
     text-decoration: none;
+    margin-bottom: 24px;
 }
 
 .info {
@@ -49,13 +50,4 @@
 .tab:hover {
     color: var(--text-black);
     background: var(--active-color);
-}
-
-.activeTab {
-    background: #0070f3;
-    color: white;
-    border-radius: 6px;
-    padding: 10px 14px;
-    text-decoration: none;
-    font-weight: 600;
 }

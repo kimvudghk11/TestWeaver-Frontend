@@ -5,13 +5,14 @@ export default function ProjectTabs() {
     const { id } = useParams();
 
     const tabs = [
+        { name: "Project-List", path: "/projects" },
         { name: "Model", path: `/projects/${id}/detail` },
         { name: "Test Cases", path: `/projects/${id}/testcases` },
     ];
 
     return (
         <nav className={styles.tabs}>
-            <Link to="/" className={styles.title}>TestWeaver</Link>
+            <h1 className={styles.title}>TestWeaver</h1>
 
             <p className={styles.info}>Info</p>
             {tabs.map((tab) => (
