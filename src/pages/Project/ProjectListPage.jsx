@@ -19,9 +19,9 @@ export default function ProjectListPage() {
                 const res = await projectApi.list();
 
                 setProjects(res.data);
-            } catch (err) {
-                console.err(err);
-                setErr(err);
+            } catch (error) {
+                console.error(error.message);
+                setErr(error);
             } finally {
                 setLoading(false);
             }
