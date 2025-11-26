@@ -1,4 +1,4 @@
-import styles from "./TestCases.module.css";
+import styles from "./TestCasesLayout.module.css";
 import ProjectTabs from "./TestCasesTabs";
 
 export default function ProjectLayout({ children }) {

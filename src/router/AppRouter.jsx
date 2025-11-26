@@ -17,11 +17,10 @@ import ResetPwPage from "../pages/Auth/ResetPwPage";
 // Projects pages (로그인 이후)
 import ProjectListPage from "../pages/Project/ProjectListPage";
 import ProjectCreatePage from "../pages/Project/ProjectCreatePage";
-import ProjectDetailPage from "../pages/Project/ProjectDetailPage";
 
 // Projects 내부
-import OverviewPage from "../pages/Project/OverviewPage";
-import TestCasesPage from "../pages/Project/TestCasesPage";
+import TestCaseConfigPage from "../pages/TestCase/TestCaseConfigPage";
+import TestCaseListPage from "../pages/TestCase/TestCaseListPage";
 
 // Not Found
 //import NotFoundPage from "../pages/NotFoundPage";
@@ -45,11 +44,10 @@ export default function AppRouter() {
                 {/* Project */}
                 <Route path="/projects" element={<ProjectListPage />} />
                 <Route path="/projects/create" element={<ProjectCreatePage />} />
-                <Route path="/projects/:id/detail" element={<ProjectDetailPage />} />
 
-                {/* Project 내부 페이지 */}
-                <Route path="/projects/:id/overview" element={<OverviewPage />} />
-                <Route path="/projects/:id/testcases" element={<TestCasesPage />} />
+                {/* Project 내부 페이지 (Test Case) */}
+                <Route path="/projects/:id/config" element={<TestCaseConfigPage />} />
+                <Route path="/projects/:id/testcases" element={<TestCaseListPage />} />
             </Route>
         </Routes>
     );

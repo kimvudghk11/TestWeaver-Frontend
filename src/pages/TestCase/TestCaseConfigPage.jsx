@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { projectApi } from "../../api/projectApi";
 
-import ProjectLayout from "../../components/Project/ProjectLayout";
+import TestCasesLayout from "../../components/Layout/TestCasesLayout";
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
-import styles from "./ProjectDetail.module.css";
+import styles from "./TestCaseConfig.module.css";
 
-export default function ProjectDetailPage() {
+export default function TestCaseConfigPage() {
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -19,7 +19,8 @@ export default function ProjectDetailPage() {
     const [coverage, setCoverage] = useState("2-way");
 
     const addParam = () => {
-        if (!newParam || !newValues) return;
+        if (!newParam || !newValues)
+            return;
 
         const values = newValues
             .split(",")
@@ -29,10 +30,6 @@ export default function ProjectDetailPage() {
         setParams([...params, { name: newParam, values }]);
         setNewParam("");
         setNewValues("");
-    };
-
-    const removeParam = (index) => {
-        setParams(params.filter((_, i) => i !== index));
     };
 
     const saveModel = async () => {
@@ -55,7 +52,7 @@ export default function ProjectDetailPage() {
     };
 
     return (
-        <ProjectLayout>
+        <TestCasesLayout>
             <div className={styles.container}>
 
                 <h1 className={styles.pageTitle}>Project Model</h1>
@@ -171,6 +168,6 @@ export default function ProjectDetailPage() {
                     <Button onClick={saveModel}>Save & Generate Test Cases</Button>
                 </section>
             </div>
-        </ProjectLayout>
+        </TestCasesLayout>
     );
 }
