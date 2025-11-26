@@ -1,5 +1,5 @@
-import styles from "./ProjectLayout.module.css";
-import ProjectTabs from "./ProjectTabs";
+import styles from "./TestCases.module.css";
+import ProjectTabs from "./TestCasesTabs";
 
 export default function ProjectLayout({ children }) {
     return (

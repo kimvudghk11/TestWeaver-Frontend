@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import styles from "./ProjectLayout.module.css";
+import styles from "./TestCasesLayout.module.css";
 
 export default function ProjectTabs() {
     const { id } = useParams();

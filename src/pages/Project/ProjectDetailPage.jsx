@@ -58,19 +58,21 @@ export default function ProjectDetailPage() {
         <ProjectLayout>
             <div className={styles.container}>
 
-                <h1 className={styles.pageTitle}>Project Detail</h1>
+                <h1 className={styles.pageTitle}>Project Model</h1>
 
                 <section className={styles.section}>
                     <h2 className={styles.sectionTitle}>Parameters</h2>
 
                     <div className={styles.row}>
                         <Input
-                            label="파라미터 이름"
+                            label="Parameter Name"
+                            placeholder="EX) OS, browser"
                             value={newParam}
                             onChange={(e) => setNewParam(e.target.value)}
                         />
                         <Input
-                            label="값 (쉼표로 구분)"
+                            label="Parameter Values"
+                            placeholder="EX) Mac, Windows, Linux"
                             value={newValues}
                             onChange={(e) => setNewValues(e.target.value)}
                         />
