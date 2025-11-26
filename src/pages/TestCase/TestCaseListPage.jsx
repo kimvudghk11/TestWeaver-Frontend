@@ -4,6 +4,7 @@ import { projectApi } from "../../api/projectApi";
 import { testcaseApi } from "../../api/testcaseApi";
 
 import TestCasesLayout from "../../components/Layout/TestCases/TestCasesLayout";
+import Button from "../../components/UI/Button";
 import styles from "./TestCaseList.module.css";
 
 export default function TestCaseListPage() {
@@ -33,7 +34,13 @@ export default function TestCaseListPage() {
     const loadSetDetail = async (setId) => {
         try {
             const res = await testcaseApi.getSet(setId);
-            setSelectedCases(res.data.testCases || []);
+
+            if (!res?.data?.testCases) {
+                setSelectedCases([]);
+                return;
+            }
+
+            setSelectedCases(res.data.testCases);
         } catch (err) {
             console.error(err);
             setSelectedCases([]);
@@ -46,7 +53,7 @@ export default function TestCaseListPage() {
     };
 
     const handleExport = async () => {
-        if (!selectedSetId) return; // 보호
+        if (!selectedSetId) return;
 
         try {
             const res = await testcaseApi.export(selectedSetId, format);
@@ -70,66 +77,72 @@ export default function TestCaseListPage() {
             <h1 className={styles.title}>Generated Test Case Sets</h1>
 
             {/* SET 목록 테이블 */}
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Set Name</th>
-                        <th>Strategy</th>
-                        <th>Params</th>
-                        <th>Select</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sets.map((s) => (
-                        <tr key={s.id}>
-                            <td>{s.id}</td>
-                            <td>{s.name}</td>
-                            <td>{s.strategy}</td>
-                            <td>{s.parameterCount}</td>
-                            <td>
-                                <button
-                                    className={styles.selectBtn}
-                                    onClick={() => handleSelectSet(s.id)}
-                                >
-                                    Select
-                                </button>
-                            </td>
+            <div className={styles.listTable}>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>No</th>
+                            <th>Set Name</th>
+                            <th>Strategy</th>
+                            <th>Coverage</th>
+                            <th>Params</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {sets.map((s, index) => (
+                            <tr key={s.id}>
+                                <td>
+                                    <input
+                                        type="radio"
+                                        name="setSelect"
+                                        checked={selectedSetId === s.id}
+                                        onChange={() => handleSelectSet(s.id)}
+                                    />
+                                </td>
+                                <td>{index + 1}</td>
+                                <td>{s.name}</td>
+                                <td>{s.strategy}</td>
+                                <td>{s.coverage}</td>
+                                <td>{s.parameterCount}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
-            {/* 선택한 SET의 Test Case 테이블 */}
+            {/* 선택한 SET의 테스트 케이스 테이블 */}
             {selectedSetId && selectedCases.length > 0 && (
                 <>
-                    <h2>Test Cases for Set #{selectedSetId}</h2>
+                    <h2 className={styles.subTitle}>Test Cases for Set #{selectedSetId}</h2>
 
-                    <table className={styles.table}>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                {Object.keys(selectedCases[0].values).map((key) => (
-                                    <th key={key}>{key}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {selectedCases.map((c, idx) => (
-                                <tr key={idx}>
-                                    <td>{idx + 1}</td>
-                                    {Object.values(c.values).map((v, i) => (
-                                        <td key={i}>{v}</td>
+                    <div className={styles.listTable}>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    {Object.keys(selectedCases[0].values).map((key) => (
+                                        <th key={key}>{key}</th>
                                     ))}
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {selectedCases.map((c, idx) => (
+                                    <tr key={idx}>
+                                        <td>{idx + 1}</td>
+                                        {Object.values(c.values).map((v, i) => (
+                                            <td key={i}>{v}</td>
+                                        ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </>
             )}
 
-            {/* Export 영역 */}
-            <div className={styles.exportSection}>
+            {/* 오른쪽 하단 Fixed Export */}
+            <div className={styles.floatingExport}>
                 <select
                     className={styles.select}
                     value={format}
@@ -142,10 +155,10 @@ export default function TestCaseListPage() {
 
                 <button
                     className={styles.exportBtn}
-                    disabled={!selectedSetId}   // 선택 안 하면 비활성화!!!
+                    disabled={!selectedSetId}
                     onClick={handleExport}
                 >
-                    다운로드
+                    Export
                 </button>
             </div>
         </TestCasesLayout>

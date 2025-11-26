@@ -1,44 +1,56 @@
 .title {
     color: var(--text-white);
+    margin-bottom: 20px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+.subTitle {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: var(--text-white);
 }
 
-.table {
-    background: #fff;
+/* 이 파일 전용 테이블 스코프 */
+.listTable {
     padding: 16px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    margin-bottom: 24px;
 }
 
-table {
+.listTable table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
 }
 
-th {
-    background: #f1f1f1;
+.listTable th {
+    background: var(--bg-white);
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--bg-white);
 }
 
-td {
+.listTable td {
+    color: var(--text-white);
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--bg-white);
 }
 
-.exportSection {
+/* 오른쪽 아래 고정 Export 박스 */
+.floatingExport {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     gap: 12px;
-    margin-bottom: 16px;
+
+    background: #fff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    z-index: 999;
 }
 
 .select {
@@ -49,9 +61,14 @@ td {
 
 .exportBtn {
     padding: 8px 16px;
-    background: var(--primary-color);
+    background: var(--text-black);
     border: none;
     color: white;
     border-radius: 6px;
     cursor: pointer;
+}
+
+.exportBtn:disabled {
+    background: #aaa;
+    cursor: not-allowed;
 }

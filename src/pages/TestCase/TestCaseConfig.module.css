@@ -54,6 +54,12 @@
     padding: 10px;
 }
 
+.table th {
+    background: var(--bg-white);
+    color: var(--text-black);
+    text-align: left;
+}
+
 .table tbody td {
     color: var(--text-white);
 }

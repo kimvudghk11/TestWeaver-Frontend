@@ -4,10 +4,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 body {
     background: var(--bg);
     font-family: 'Inter', sans-serif;
-    color: var(--text);
+}
+
+input,
+textarea {
+    user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
 }
