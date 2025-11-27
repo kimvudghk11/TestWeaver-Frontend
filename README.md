@@ -175,13 +175,13 @@ TestWeaver는 API 레이어를 명확히 분리하여 유지보수성을 강화�
 npm install
 ```
 
-### 2. Ren Dev
-```
+### 2. Run Dev
+```bash
 npm run dev
 ```
 
 ### Build
-```
+```bash
 npm run build
 ```
 
