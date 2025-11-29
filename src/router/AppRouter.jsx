@@ -4,9 +4,9 @@ import ProtectedRoute from "./ProtectedRoute";
 
 // Public Page
 import HomePage from "../pages/Home/HomePage";
-import DocsPage from "../pages/Home/DocsPage";
-import AboutPage from "../pages/Home/AboutPage";
-import HelpPage from "../pages/Home/HelpPage";
+import DocsPage from "../pages/Public/DocsPage";
+import AboutPage from "../pages/Public/AboutPage";
+import HelpPage from "../pages/Public/HelpPage";
 
 // Auth Pages
 import LoginPage from "../pages/Auth/LoginPage";
@@ -19,8 +19,8 @@ import ProjectListPage from "../pages/Project/ProjectListPage";
 import ProjectCreatePage from "../pages/Project/ProjectCreatePage";
 
 // Projects 내부
-import TestCaseConfigPage from "../pages/TestCase/TestCaseConfigPage";
-import TestCaseListPage from "../pages/TestCase/TestCaseListPage";
+import TestCaseConfigPage from "../pages/TestCases/TestCaseConfigPage";
+import TestCaseListPage from "../pages/TestCases/TestCaseListPage";
 
 // Not Found
 //import NotFoundPage from "../pages/NotFoundPage";
