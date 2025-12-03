@@ -42,4 +42,14 @@ export const projectApi = {
         const res = await api.get(`/projects/${projectId}/testcases`);
         return res.data;
     },
+
+    get: async (id) => {
+        const res = await api.get(`/projects/${id}`);
+        return res.data.data;
+    },
+
+    analyzeSwagger: async (url) => {
+        const res = await api.post("/projects/analyze-swagger", { swaggerURL: url });
+        return res.data.data;
+    },
 };
