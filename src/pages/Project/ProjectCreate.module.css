@@ -7,6 +7,7 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .title {
@@ -24,7 +25,7 @@
 .inputWrapper {
     display: flex;
     align-items: flex-start;
-    justify-content: row;
+    justify-content: flex-start;
     padding: 12px;
 }
 
@@ -42,4 +43,9 @@
     color: var(--text-white);
     padding-left: 8px;
     padding-bottom: 16px;
+}
+
+.buttonWrapper {
+    margin-top: 20px;
+    padding-left: 20px;
 }
