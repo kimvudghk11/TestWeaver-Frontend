@@ -86,6 +86,7 @@ export default function TestCaseListPage() {
                             <th>Strategy</th>
                             <th>Coverage</th>
                             <th>Params</th>
+                            <th>Export Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,6 +105,17 @@ export default function TestCaseListPage() {
                                 <td>{s.strategy}</td>
                                 <td>{s.coverage}</td>
                                 <td>{s.parameterCount}</td>
+                                <td>
+                                    <select
+                                        className={styles.select}
+                                        value={format}
+                                        onChange={(e) => setFormat(e.target.value)}
+                                    >
+                                        <option value="csv">CSV</option>
+                                        <option value="excel">Excel (.xlsx)</option>
+                                        <option value="gherkin">Gherkin</option>
+                                    </select>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -142,16 +154,6 @@ export default function TestCaseListPage() {
 
             {/* 오른쪽 하단 Fixed Export */}
             <div className={styles.floatingExport}>
-                <select
-                    className={styles.select}
-                    value={format}
-                    onChange={(e) => setFormat(e.target.value)}
-                >
-                    <option value="csv">CSV</option>
-                    <option value="excel">Excel (.xlsx)</option>
-                    <option value="gherkin">Gherkin</option>
-                </select>
-
                 <button
                     className={styles.exportBtn}
                     disabled={!selectedSetId}
